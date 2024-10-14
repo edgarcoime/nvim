@@ -80,8 +80,8 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Set ctrl q and ctrl s as save
-vim.keymap.set("n", "<C-s>", "<cmd>w!<cr>", { desc = "Force Write" })
-vim.keymap.set("n", "<C-q>", "<cmd>qa!<cr>", { desc = "Force Quit" })
+-- vim.keymap.set("n", "<C-s>", "<cmd>w!<cr>", { desc = "Force Write" })
+-- vim.keymap.set("n", "<C-q>", "<cmd>qa!<cr>", { desc = "Force Quit" })
 
 -- TODO: is this even needed?
 -- Keybinds to make split navigation easier.

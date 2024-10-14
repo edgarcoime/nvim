@@ -49,7 +49,7 @@ return {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
 
       -- Additionals
-      "mrcjkb/rustaceanvim",
+      -- "mrcjkb/rustaceanvim",
     },
     config = function()
       -- import lspconfig plugin
@@ -82,6 +82,8 @@ return {
           -- rust Use rustacean to enable further integrations
           -- clang
           "clangd",
+          -- zig
+          "zls",
           -- web
           "ts_ls",
           "html",
@@ -148,6 +150,7 @@ return {
         "emmet_ls",
         "clangd",
         "bashls",
+        "zls",
       }
 
       -- default options application

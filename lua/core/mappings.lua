@@ -3,6 +3,10 @@ local opts = function(desc)
   return { noremap = true, silent = true, desc = desc }
 end
 
+vim.keymap.set("n", "<leader>tt", function()
+  print("test")
+end, { noremap = true, silent = true })
+
 -- ensure jump list keybinds are not overwritten
 -- keymap.set("n", "<C-o>", "g;", { noremap = true, silent = true })
 -- keymap.set("n", "<C-i>", "g,", { noremap = true, silent = true })
@@ -11,18 +15,12 @@ end
 -- WARN: enabling makes deleting with x slow
 -- keymap.set("n", "x", '"_x"')
 
--- remap ensure q recording
-keymap.set("n", "<leader>q", "@", opts("Record macro"))
-
 -- Diagnostic keymaps
 -- keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts "Open diagnostic [Q]uickfix list")
 
 -- Set ctrl q and ctrl s as save
 keymap.set("n", "<C-s>", "<cmd>w!<cr>", opts("Force Write"))
 keymap.set("n", "<C-q>", "<cmd>qa!<cr>", opts("Force Quit"))
-
--- TODO: Not working ?
--- keymap.set("n", "<leader>q", "<cmd>q!<CR>", { desc = "Close current buffer" }) --  move current buffer to new tab
 
 -- editor configs
 -- Toggle line wrap with <leader>w
@@ -50,7 +48,9 @@ keymap.set("n", "<C-S-l>", "<C-w>>", opts("Resize right"))
 keymap.set("n", "<C-S-j>", "<C-w>-", opts("Resize down"))
 keymap.set("n", "<C-S-k>", "<C-w>+", opts("Resize up"))
 
--- diagnostics
-keymap.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
-end, opts("Go to next diagnostic"))
+-- Paste buffer shortcuts
+keymap.set("x", "<leader>p", [["_dP]], opts("Paste without replacing buffer"))
+
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])

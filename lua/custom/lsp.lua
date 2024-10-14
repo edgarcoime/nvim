@@ -6,7 +6,7 @@ function M.onAttachCreator(addFn)
   if addFn ~= nil then
     addFn()
   end
-  return function(client, bufnr)
+  return function(_, bufnr)
     local tb = require("telescope.builtin")
     local map = function(keys, func, desc)
       vim.keymap.set("n", keys, func, { buffer = bufnr, silent = true, noremap = true, desc = "LSP: " .. desc })
