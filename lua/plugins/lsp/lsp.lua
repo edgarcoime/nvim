@@ -84,6 +84,8 @@ return {
           "clangd",
           -- zig
           "zls",
+          -- Elixir
+          "elixirls",
           -- web
           "ts_ls",
           "html",
@@ -141,6 +143,7 @@ return {
       local defaultLSPs = {
         "pyright",
         "gopls",
+        "elixirls",
         -- "jsonls",
         "ts_ls",
         "html",
