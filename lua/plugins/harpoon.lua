@@ -8,7 +8,7 @@ return {
     harpoon:setup({})
 
     local map = function(keys, func, desc)
-      vim.keymap.set("n", keys, func, { desc = "Harpoon: " .. desc })
+      require("custom.functions").map("n", keys, func, { desc = "Harpoon: " .. desc })
     end
 
     map("<leader>a", function()
@@ -30,14 +30,11 @@ return {
     map("<leader>4", function()
       harpoon:list():select(4)
     end, "Go to bookmark 4")
-
-    -- Toggle between next and previous buffers within harpoon list
-    -- WARN: does not pick this up on macos, alacritty, tmux, neovim
-    -- map("<C-S-N>", function()
-    --   harpoon:list():next()
-    -- end, "Go to next buffer")
-    -- map("<C-S-P>", function()
-    --   harpoon:list():prev()
-    -- end, "Go to prev buffer")
+    map("<leader>5", function()
+      harpoon:list():select(5)
+    end, "Go to bookmark 5")
+    map("<leader>6", function()
+      harpoon:list():select(6)
+    end, "Go to bookmark 6")
   end,
 }

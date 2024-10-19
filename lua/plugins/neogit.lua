@@ -12,7 +12,7 @@ return {
     neogit.setup({})
 
     local function map(mode, l, r, desc)
-      vim.keymap.set(mode, l, r, { desc = "Neogit: " .. desc })
+      require("custom.functions").map(mode, l, r, { desc = "Neogit: " .. desc })
     end
 
     map("n", "<leader>gn", function()

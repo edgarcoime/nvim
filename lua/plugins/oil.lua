@@ -40,7 +40,8 @@ return {
       },
     })
 
-    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-    vim.keymap.set("n", "<leader>-", oil.toggle_float, { desc = "Open parent directory in floating window" })
+    local map = require("custom.functions").map
+    map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    map("n", "<leader>-", oil.toggle_float, { desc = "Open parent directory in floating window" })
   end,
 }

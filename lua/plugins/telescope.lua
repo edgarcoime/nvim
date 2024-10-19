@@ -57,7 +57,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- See `:help telescope.builtin`
     local builtin = require("telescope.builtin")
     local map = function(m, l, r, desc)
-      vim.keymap.set(m, l, r, { noremap = true, silent = true, desc = "Telescope: " .. desc })
+      require("custom.functions").map(m, l, r, { desc = "Telescope " .. desc })
     end
 
     -- git mappings
