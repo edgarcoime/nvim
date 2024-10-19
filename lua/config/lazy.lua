@@ -32,8 +32,7 @@ require("lazy").setup({
     { import = "plugins.shared" },
   },
   -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "catppuccin" } },
+  -- Set color scheme in colorscheme.lua with priority 1000 and set vim cmd there
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
