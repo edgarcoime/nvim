@@ -5,8 +5,8 @@ return { -- Useful plugin to show you pending keybinds.
   },
   event = "VimEnter", -- Sets the loading event to 'VimEnter'
   config = function() -- This is the function that runs, AFTER loading
-    local wk = require "which-key"
-    wk.setup {
+    local wk = require("which-key")
+    wk.setup({
       icons = {
         mappings = vim.g.have_nerd_font,
         keys = vim.g.have_nerd_font and {} or {
@@ -40,9 +40,9 @@ return { -- Useful plugin to show you pending keybinds.
           F12 = "<F12>",
         },
       },
-    }
+    })
 
-    wk.add {
+    wk.add({
       { "<leader>c", group = "[C]ode", mode = { "n", "x" } },
       { "<leader>d", group = "[D]ebugger" },
       { "<leader>l", group = "[L]SP" },
@@ -53,6 +53,6 @@ return { -- Useful plugin to show you pending keybinds.
       { "<leader>gt", group = "[G]it [T]oggle" },
       { "<leader>w", group = "[W]orkspace" },
       { "<leader>e", group = "[E]ditor" },
-    }
+    })
   end,
 }
