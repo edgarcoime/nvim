@@ -3,6 +3,9 @@ local map = require("custom.functions").map
 -- NOTE: Setting remap makes the mapping recursive b/c without it will not expand
 -- Also by setting expr the rhs mapping is determined at runtime
 
+-- Editor shortcuts
+map("n", "<leader>eS", "<cmd>noa w!<cr>", { desc = "Save without vim hooks or formatting" })
+
 -- Set ctrl q and ctrl s as save
 map("n", "<C-s>", "<cmd>w!<cr>")
 map("n", "<C-q>", "<cmd>qa!<cr>")
@@ -24,10 +27,10 @@ map("n", "<leader>q", "<C-w>q", { desc = "Close Window" })
 
 -- TODO: Find alternative binding b/c most terminals no differentiation between C-h and C-S-h
 -- resize window
--- map("n", "<C-S-h>", "<C-w><", { desc = "Resize left" })
--- map("n", "<C-S-l>", "<C-w>>", { desc = "Resize right" })
--- map("n", "<C-S-j>", "<C-w>-", { desc = "Resize down" })
--- map("n", "<C-S-k>", "<C-w>+", { desc = "Resize up" })
+map("n", "<C-LEFT>", "<cmd>vertical resize -5<cr>", { desc = "Decrease Width" })
+map("n", "<C-RIGHT>", "<cmd>vertical resize +5<cr>", { desc = "Increase Width" })
+map("n", "<C-DOWN>", "<cmd>resize -5<cr>", { desc = "Decrease height" })
+map("n", "<C-UP>", "<cmd>resize +5<cr>", { desc = "Increase height" })
 
 -- -- tabs
 -- keymap.set("n", "<leader>te", "<cmd>tabedit<cr>", opts("Edit tab"))
