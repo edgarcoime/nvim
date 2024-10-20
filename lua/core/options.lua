@@ -35,7 +35,7 @@ opt.smartcase = true -- if you include mixed case assumes case sens search
 
 -- cursor line
 opt.cursorline = true
-opt.cursorcolumn = true
+-- opt.cursorcolumn = true
 opt.scrolloff = 10
 
 -- Sets how neovim will display certain whitespace in the editor.

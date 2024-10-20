@@ -1,5 +1,15 @@
 local M = {}
 
+local function truncated_filepath(filepath)
+  -- local last_three = filepath:match("([^/]+/[^/]+/([^/]+)$")
+  local last_three = filepath:match("([^/]+/[^/]+/[^/]+)$")
+  if last_three then
+    return last_three
+  end
+
+  return filepath
+end
+
 M.renderWithIconName = function()
   local helpers = require("incline.helpers")
   local devicons = require("nvim-web-devicons")
@@ -19,7 +29,11 @@ M.renderWithIconName = function()
 
       -- https://neovim.io/doc/user/cmdline.html#filename-modifiers
       local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":p:.")
-      local display_name = filename
+      -- local display_name = truncated_filepath(filename)
+      local display_name = truncated_filepath(filename)
+
+      -- print("filename: ", filename)
+      -- print("displayname: ", display_name)
 
       -- local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":p:h")
       local ft_icon, ft_color = devicons.get_icon_color(filename)
