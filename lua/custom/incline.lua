@@ -1,10 +1,26 @@
 local M = {}
 
+local function split_string(input, delimiter)
+  local result = {}
+  for match in (input .. delimiter):gmatch("(.-)" .. delimiter) do
+    table.insert(result, match)
+  end
+  return result
+end
+
 local function truncated_filepath(filepath)
-  -- local last_three = filepath:match("([^/]+/[^/]+/([^/]+)$")
+  -- Check if depth is more than three
+  local parts = split_string(filepath, "/")
+
+  -- Get the last sections of path
   local last_three = filepath:match("([^/]+/[^/]+/[^/]+)$")
+
   if last_three then
-    return last_three
+    if #parts > 3 then
+      return "../" .. last_three
+    else
+      return last_three
+    end
   end
 
   return filepath
