@@ -57,7 +57,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- See `:help telescope.builtin`
     local builtin = require("telescope.builtin")
     local map = function(m, l, r, desc)
-      require("custom.functions").map(m, l, r, { desc = "Telescope " .. desc })
+      require("custom.functions").map(m, l, r, { desc = "Telescope: " .. desc })
     end
 
     -- git mappings
@@ -65,7 +65,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     map("n", "<leader>gb", builtin.git_bcommits, "[S]earch Git [C]ommits for buffer")
 
     -- additionals
-    map("n", "<leader>sn", "<cmd>Telescope noice<cr>", "[S]earch [N]oice output")
+    map("n", "<leader>sn", "<cmd>Telescope notify<cr>", "[S]earch [N]oice output")
 
     -- telescope mappings
     map("n", "<leader>sf", builtin.find_files, "[S]earch [F]iles")
@@ -85,8 +85,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
     map("n", "<leader><leader>", function()
       -- You can pass additional configuration to telescope to change theme, layout, etc.
       builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-        winblend = 10,
-        previewer = false,
+        -- winblend = 10,
+        -- previewer = false,
       }))
     end, "[ ] Fuzzily search in current buffer")
 
@@ -102,7 +102,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Shortcut for searching your neovim configuration files
     map("n", "<leader>sc", function()
       builtin.find_files({ cwd = vim.fn.stdpath("config") })
-    end, "[S]earch [N]eovim files")
+    end, "[S]earch Neovim [C]onfig files")
 
     -- Enable telescope extensions, if they are installed
     vim.g.zoxide_use_select = true

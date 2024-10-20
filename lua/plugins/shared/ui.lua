@@ -32,8 +32,9 @@ return {
       {
         "rcarriga/nvim-notify",
         opts = {
-          timeout = 3000,
+          timeout = 1000,
           render = "wrapped-compact",
+          background_colour = "#000000",
         },
       },
     },
@@ -70,7 +71,7 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     event = "BufReadPre",
-    priority = 1200,
+    priority = 1000,
     config = function()
       require("custom.incline").renderWithIconName()
     end,
