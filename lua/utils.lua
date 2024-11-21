@@ -3,6 +3,24 @@ local version = vim.version
 
 local M = {}
 
+--- Mapping overwrite for uniformity and defaults
+--- @param mode string|string[]
+--- @param lhs string
+--- @param rhs string|function
+--- @param additionals? vim.keymap.set.Opts
+--- @param overwrite? boolean
+function M.map(mode, lhs, rhs, additionals, overwrite)
+  local default_opts = { remap = true, silent = true }
+  local new_opts = {}
+  if overwrite then
+    new_opts = additionals or {}
+  else
+    new_opts = vim.tbl_deep_extend("force", default_opts, additionals or {})
+  end
+
+  vim.keymap.set(mode, lhs, rhs, new_opts)
+end
+
 function M.executable(name)
   if fn.executable(name) > 0 then
     return true
