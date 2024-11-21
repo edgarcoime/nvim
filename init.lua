@@ -1,1 +1,14 @@
-require("config.lazy")
+vim.loader.enable()
+
+local utils = require("utils")
+
+local expected_version = "0.10.2"
+utils.is_compatible_version(expected_version)
+
+local config_dir = vim.fn.stdpath("config")
+---@cast config_dir string
+
+-- some global settings
+require("globals")
+-- setting options in nvim
+vim.cmd("source " .. vim.fs.joinpath(config_dir, "viml_conf/options.vim"))
