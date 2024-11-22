@@ -32,12 +32,61 @@ local firenvim_not_active = function()
 end
 
 local plugin_specs = {
-  "nvim-lua/plenary.nvim", -- lua functions that many plugins use
+  -- load deps that many others rely on
+  "nvim-lua/plenary.nvim",
+  "echasnovski/mini.nvim", -- TODO: Find a way to not need this
   {
-    "shellRaining/hlchunk.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    opts = {},
+    "nvim-tree/nvim-web-devicons",
+    enabled = vim.g.have_nerd_font,
   },
+
+  -- Which Key
+  {
+    "folke/which-key.nvim",
+    event = "VimEnter", -- Sets the loading event to 'VimEnter'
+    config = function()
+      require("config.which-key")
+    end,
+  },
+
+  -- Filetree viewer
+  {
+    "mrjones2014/smart-splits.nvim",
+  },
+  {
+    "stevearc/oil.nvim",
+    config = function()
+      require("config.oil")
+    end,
+  },
+
+  -- Telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    event = "VimEnter",
+    branch = "0.1.x",
+    dependencies = {
+      { -- If encountering errors, see telescope-fzf-native README for install instructions
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        cond = function()
+          return vim.fn.executable("make") == 1
+        end,
+      },
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
+      "joshmedeski/telescope-smart-goto.nvim",
+    },
+    config = function()
+      require("config.telescope")
+    end,
+  },
+
+  -- {
+  --   "shellRaining/hlchunk.nvim",
+  --   event = { "BufReadPre", "BufNewFile" },
+  --   opts = {},
+  -- },
 }
 
 require("lazy").setup {
