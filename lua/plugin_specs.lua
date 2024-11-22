@@ -102,6 +102,7 @@ local plugin_specs = {
     end,
   },
 
+  -- ########## QUALITY OF LIFE PLUGINS ##########
   -- Indent Blankline to highlight indentation
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -109,6 +110,24 @@ local plugin_specs = {
     ---@module "ibl"
     ---@type ibl.config
     opts = {},
+  },
+
+  -- Super charged % word jumping
+  {
+    "andymass/vim-matchup",
+    event = "VeryLazy",
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  },
+
+  -- text jumper
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("config.flash")
+    end,
   },
 }
 
