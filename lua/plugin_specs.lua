@@ -34,7 +34,10 @@ end
 local plugin_specs = {}
 
 require("lazy").setup {
-  spec = plugin_specs,
+  spec = {
+    plugin_specs,
+    { import = "plugins" },
+  },
   ui = {
     border = "rounded",
     title = "Plugin Manager",
@@ -43,4 +46,27 @@ require("lazy").setup {
   rocks = {
     enabled = false,
   },
+  checker = {
+    enabled = true,
+  },
 }
+
+-- Toggle setup Lazy nvim setup
+local toggleLazy = function()
+  local lazy_open = false
+  for _, win in pairs(vim.api.nvim_list_wins()) do
+    local bufname = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(win))
+    if bufname:match("lazy://") then
+      lazy_open = true
+      break
+    end
+  end
+
+  if lazy_open then
+    vim.cmd("q") -- Close the Lazy.nvim window if it's open
+  else
+    vim.cmd("Lazy") -- Open the Lazy.nvim dashboard if it's not open
+  end
+end
+
+vim.keymap.set("n", "<leader>el", toggleLazy, { desc = "Toggle Lazy Config", noremap = true, silent = true })
