@@ -101,6 +101,15 @@ local plugin_specs = {
       require("config.telescope")
     end,
   },
+
+  -- Indent Blankline to highlight indentation
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  },
 }
 
 require("lazy").setup {
