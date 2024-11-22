@@ -104,6 +104,14 @@ local plugin_specs = {
 
   -- ########## GIT AND VERSION CONTROL ##########
   {
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require("config.gitsigns")
+    end,
+  },
+
+  {
     "NeogitOrg/neogit",
     dependencies = {
       "sindrets/diffview.nvim", -- optional - Diff integration
