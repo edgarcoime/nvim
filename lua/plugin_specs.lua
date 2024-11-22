@@ -102,6 +102,17 @@ local plugin_specs = {
     end,
   },
 
+  -- ########## GIT AND VERSION CONTROL ##########
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "sindrets/diffview.nvim", -- optional - Diff integration
+    },
+    config = function()
+      require("config.neogit")
+    end,
+  },
+
   -- ########## QUALITY OF LIFE PLUGINS ##########
   -- Indent Blankline to highlight indentation
   {
@@ -118,6 +129,16 @@ local plugin_specs = {
     event = "VeryLazy",
     config = function()
       vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  },
+
+  -- buffer tabs
+  {
+    "akinsho/bufferline.nvim",
+    event = { "BufEnter" },
+    cond = firenvim_not_active,
+    config = function()
+      require("config.bufferline")
     end,
   },
 
