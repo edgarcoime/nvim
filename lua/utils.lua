@@ -97,4 +97,32 @@ function M.is_compatible_version(expected_version)
   return true
 end
 
+function M.get_titlestr()
+  local title_str = ""
+
+  -- Check if the system is Linux
+  if vim.g.is_linux then
+    -- Retrieve the hostname
+    local hostname = vim.fn.hostname()
+    title_str = hostname .. "  "
+  end
+
+  -- Get the full path of the current buffer, relative to the home directory
+  local buf_path = vim.fn.expand("%:p:~")
+  title_str = title_str .. buf_path .. "  "
+
+  -- Check if the buffer is listed and has a valid path
+  if vim.bo.buflisted and buf_path ~= "" then
+    -- Get the last modification time of the file
+    local last_mod_time = vim.fn.getftime(vim.fn.expand("%"))
+    if last_mod_time ~= -1 then
+      -- Format the modification time
+      local formatted_time = os.date("%Y-%m-%d %H:%M:%S%z", last_mod_time)
+      title_str = title_str .. formatted_time
+    end
+  end
+
+  return title_str
+end
+
 return M

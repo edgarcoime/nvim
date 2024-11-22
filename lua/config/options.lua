@@ -132,7 +132,7 @@ vim.opt.autowrite = true
 
 -- Title settings
 vim.opt.title = true
-vim.opt.titlestring = '%{v:lua.require("utils").get_titlestr()}'
+vim.opt.titlestring = require("utils").get_titlestr()
 
 -- Persistent undo
 vim.opt.undofile = true
