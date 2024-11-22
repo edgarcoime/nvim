@@ -1,9 +1,42 @@
 local map = require("utils").map
 local uv = vim.uv
 
--- Set ctrl q and ctrl s as save
-map("n", "<C-s>", "<cmd>update<cr>", { desc = "Save current buffer" })
-map("n", "<C-q>", "<cmd>qa!<cr>", { desc = "Quit all buffers" })
+-- Turn the word under cursor to upper case
+map("i", "<c-u>", "<Esc>viwUea")
+
+-- Turn the current word into title case
+map("i", "<c-t>", "<Esc>b~lea")
+
+-- Navigation in the location and quickfix list
+map("n", "[l", "<cmd>lprevious<cr>zv", { silent = true, desc = "previous location item" })
+map("n", "]l", "<cmd>lnext<cr>zv", { silent = true, desc = "next location item" })
+
+map("n", "[L", "<cmd>lfirst<cr>zv", { silent = true, desc = "first location item" })
+map("n", "]L", "<cmd>llast<cr>zv", { silent = true, desc = "last location item" })
+
+map("n", "[q", "<cmd>cprevious<cr>zv", { silent = true, desc = "previous qf item" })
+map("n", "]q", "<cmd>cnext<cr>zv", { silent = true, desc = "next qf item" })
+
+map("n", "[Q", "<cmd>cfirst<cr>zv", { silent = true, desc = "first qf item" })
+map("n", "]Q", "<cmd>clast<cr>zv", { silent = true, desc = "last qf item" })
+
+-- Close location list or quickfix list if they are present, see https://superuser.com/q/355325/736190
+map("n", [[\x]], "<cmd>windo lclose <bar> cclose <cr>", {
+  silent = true,
+  desc = "close qf and location list",
+})
+
+-- Insert a blank line below or above current line (do not move the cursor),
+-- see https://stackoverflow.com/a/16136133/6064933
+map("n", "<space>o", "printf('m`%so<ESC>``', v:count1)", {
+  expr = true,
+  desc = "insert line below",
+})
+
+map("n", "<space>O", "printf('m`%sO<ESC>``', v:count1)", {
+  expr = true,
+  desc = "insert line above",
+})
 
 -- Move the cursor based on physical lines, not the actual lines.
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true }, true)
@@ -76,13 +109,19 @@ map("c", "<C-A>", "<HOME>")
 -- Delete the character to the right of the cursor
 map("i", "<C-D>", "<DEL>")
 
-
+-- MY CUSTOM MAPPINGS
+-- Set ctrl q and ctrl s as save
+map("n", "<C-s>", "<cmd>update<cr>", { desc = "Save current buffer" })
+map("n", "<C-q>", "<cmd>qa!<cr>", { desc = "Quit all buffers" })
 
 -- Editor shortcuts
 map("n", "<leader>eS", "<cmd>noa w!<cr>", { desc = "Save without vim hooks or formatting" })
 
 -- Paste buffer shortcuts
 map("x", "<leader>p", [["_dP]], { desc = "Paste without replacing buffer" })
+-- Replace visual selection with text in register, but not contaminate the register,
+-- see also https://stackoverflow.com/q/10723700/6064933.
+map("x", "p", '"_c<Esc>p')
 
 -- next greatest remap ever : asbjornHaland
 map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank into system clipboard" })
