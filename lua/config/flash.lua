@@ -1,10 +1,12 @@
-require("flash").setup {
+local flash = require("flash")
+
+flash.setup {
   keys = {
     {
       "s",
       mode = { "n", "x", "o" },
       function()
-        require("flash").jump()
+        flash.jump()
       end,
       desc = "Flash",
     },
@@ -12,7 +14,7 @@ require("flash").setup {
       "S",
       mode = { "n", "x", "o" },
       function()
-        require("flash").treesitter()
+        flash.treesitter()
       end,
       desc = "Flash Treesitter",
     },
@@ -20,7 +22,7 @@ require("flash").setup {
       "r",
       mode = "o",
       function()
-        require("flash").remote()
+        flash.remote()
       end,
       desc = "Remote Flash",
     },
@@ -28,7 +30,7 @@ require("flash").setup {
       "R",
       mode = { "o", "x" },
       function()
-        require("flash").treesitter_search()
+        flash.treesitter_search()
       end,
       desc = "Treesitter Search",
     },
@@ -36,7 +38,7 @@ require("flash").setup {
       "<c-s>",
       mode = { "c" },
       function()
-        require("flash").toggle()
+        flash.toggle()
       end,
       desc = "Toggle Flash Search",
     },
