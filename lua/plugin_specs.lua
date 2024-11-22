@@ -1,7 +1,7 @@
 local utils = require("utils")
 
-local plugin_dir = vim.fn.stdpath("data") .. "/lazy"
-local lazypath = plugin_dir .. "/lazy.nvim"
+local plugin_dir = utils.plugin_dir
+local lazypath = utils.lazypath
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
