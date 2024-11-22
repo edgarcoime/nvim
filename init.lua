@@ -14,10 +14,11 @@ require("globals")
 -- NOTE: might not work before loading config
 require("custom-autocmd")
 
--- load config
-require("config")
+-- load core settings
+require("core")
 
--- load Lazy
+-- load Lazy and plugins
+require("plugin_specs")
 
 -- some global settings
 -- setting options in nvim
