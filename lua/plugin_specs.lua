@@ -49,10 +49,15 @@ local plugin_specs = {
     end,
   },
 
-  -- Filetree viewer
+  -- split management
   {
     "mrjones2014/smart-splits.nvim",
+    config = function()
+      require("smart-splits").setup()
+    end,
   },
+
+  -- Filetree viewer
   {
     "stevearc/oil.nvim",
     config = function()
@@ -81,12 +86,6 @@ local plugin_specs = {
       require("config.telescope")
     end,
   },
-
-  -- {
-  --   "shellRaining/hlchunk.nvim",
-  --   event = { "BufReadPre", "BufNewFile" },
-  --   opts = {},
-  -- },
 }
 
 require("lazy").setup {
