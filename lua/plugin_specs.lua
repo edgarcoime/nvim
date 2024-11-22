@@ -33,6 +33,11 @@ end
 
 local plugin_specs = {
   "nvim-lua/plenary.nvim", -- lua functions that many plugins use
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
+  },
 }
 
 require("lazy").setup {
