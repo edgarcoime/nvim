@@ -4,7 +4,7 @@ local on_attach = function(bufnr)
   local gitsigns = require("gitsigns")
 
   local function map(mode, l, r, desc)
-    require("custom.functions").map(mode, l, r, { buffer = bufnr, desc = "Gitsigns: " .. desc })
+    require("utils").map(mode, l, r, { buffer = bufnr, desc = "Gitsigns: " .. desc })
   end
 
   -- Navigation
