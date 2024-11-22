@@ -138,7 +138,7 @@ vim.opt.titlestring = '%{v:lua.require("utils").get_titlestr()}'
 vim.opt.undofile = true
 
 -- Short message settings
-vim.opt.shortmess:append { "c", "S", "I" } -- Customize messages during auto-completion and disable intro message
+vim.o.shortmess = vim.o.shortmess .. "cSI" -- Customize messages during auto-completion and disable intro message
 
 -- Completion behavior
 vim.opt.completeopt:append("menuone") -- Show menu even if there is only one item
