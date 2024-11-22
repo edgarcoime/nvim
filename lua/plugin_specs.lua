@@ -31,7 +31,9 @@ local firenvim_not_active = function()
   return not vim.g.started_by_firenvim
 end
 
-local plugin_specs = {}
+local plugin_specs = {
+  "nvim-lua/plenary.nvim", -- lua functions that many plugins use
+}
 
 require("lazy").setup {
   spec = {
