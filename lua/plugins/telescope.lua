@@ -108,7 +108,7 @@ return {
     vim.g.zoxide_use_select = true
     require("telescope").load_extension("fzf")
     require("telescope").load_extension("ui-select")
-    require("telescope").load_extension("noice")
+    -- require("telescope").load_extension("noice")
     require("telescope").load_extension("live_grep_args")
   end,
 }
