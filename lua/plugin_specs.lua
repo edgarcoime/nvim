@@ -40,6 +40,21 @@ local plugin_specs = {
     enabled = vim.g.have_nerd_font,
   },
 
+  -- lsp
+
+  -- tree sitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
+    event = "VeryLazy",
+    build = ":TSUpdate",
+    config = function()
+      require("config.treesitter")
+    end,
+  },
+
   -- Which Key
   {
     "folke/which-key.nvim",
