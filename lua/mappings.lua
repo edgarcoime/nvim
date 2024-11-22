@@ -49,3 +49,49 @@ map("n", "<leader>cd", "<cmd>lcd %:p:h<cr><cmd>pwd<cr>", { desc = "change cwd" }
 -- Toggle spell checking
 map("n", "<F11>", "<cmd>set spell!<cr>", { desc = "toggle spell" })
 map("i", "<F11>", "<c-o><cmd>set spell!<cr>", { desc = "toggle spell" })
+
+-- Change text without putting it into the vim register,
+-- see https://stackoverflow.com/q/54255/6064933
+map("n", "c", '"_c')
+map("n", "C", '"_C')
+map("n", "cc", '"_cc')
+map("x", "c", '"_c')
+
+-- Break inserted text into smaller undo units when we insert some punctuation chars.
+local undo_ch = { ",", ".", "!", "?", ";", ":" }
+for _, ch in ipairs(undo_ch) do
+  map("i", ch, ch .. "<c-g>u")
+end
+
+-- insert semicolon in the end
+map("i", "<A-;>", "<Esc>miA;<Esc>`ii")
+
+-- Go to the beginning and end of current line in insert mode quickly
+map("i", "<C-A>", "<HOME>")
+map("i", "<C-E>", "<END>")
+
+-- Go to beginning of command in command-line mode
+map("c", "<C-A>", "<HOME>")
+
+-- Delete the character to the right of the cursor
+map("i", "<C-D>", "<DEL>")
+
+
+
+-- Editor shortcuts
+map("n", "<leader>eS", "<cmd>noa w!<cr>", { desc = "Save without vim hooks or formatting" })
+
+-- Paste buffer shortcuts
+map("x", "<leader>p", [["_dP]], { desc = "Paste without replacing buffer" })
+
+-- next greatest remap ever : asbjornHaland
+map({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank into system clipboard" })
+map("n", "<leader>Y", [["+Y]], { desc = "Yank line into system clipboard" })
+
+-- Toggle line wrap with <leader>w
+map("n", "<leader>ecw", "<cmd>set wrap!<cr>", { desc = "Toggle line [w]rap for vim" })
+
+-- window management
+map("n", "\\", "<C-w>s", { desc = "Split window horizontally" })
+map("n", "|", "<C-w>v", { desc = "Split window vertically" })
+map("n", "<leader>q", "<C-w>q", { desc = "Close Window" })
