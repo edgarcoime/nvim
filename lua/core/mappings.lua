@@ -1,8 +1,8 @@
 local map = require("utils").map
 local uv = vim.uv
 
--- Turn the word under cursor to upper case
-map("i", "<c-u>", "<Esc>viwUea")
+-- toggle the word under cursor to upper or lower case
+map("i", "<c-u>", "<Esc>viw~ea")
 
 -- Turn the current word into title case
 map("i", "<c-t>", "<Esc>b~lea")
