@@ -85,10 +85,11 @@ map("i", "<F11>", "<c-o><cmd>set spell!<cr>", { desc = "toggle spell" })
 
 -- Change text without putting it into the vim register,
 -- see https://stackoverflow.com/q/54255/6064933
-map("n", "c", '"_c')
-map("n", "C", '"_C')
-map("n", "cc", '"_cc')
-map("x", "c", '"_c')
+-- FIX: error when inputting command c in normal mode
+-- map("n", "c", '"_c')
+-- map("n", "C", '"_C')
+-- map("n", "cc", '"_cc')
+-- map("x", "c", '"_c')
 
 -- Break inserted text into smaller undo units when we insert some punctuation chars.
 local undo_ch = { ",", ".", "!", "?", ";", ":" }
