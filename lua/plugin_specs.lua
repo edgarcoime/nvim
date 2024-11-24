@@ -139,6 +139,29 @@ local plugin_specs = {
   -- ##############################
   --    QUALITY OF LIFE PLUGINS
   -- ##############################
+  -- noice nvim
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "MunifTanjim/nui.nvim",
+      {
+        "rcarriga/nvim-notify",
+        opts = {
+          timeout = 1000,
+          render = "wrapped-compact",
+          background_colour = "#000000",
+        },
+      },
+    },
+    config = function()
+      require("config.noice")
+    end,
+  },
+
   -- Indent Blankline to highlight indentation
   {
     "lukas-reineke/indent-blankline.nvim",
