@@ -107,11 +107,21 @@ local plugin_specs = {
   -- ##############################
   --           TOOLING
   -- ##############################
+  -- undotree to see undo history
   {
     "mbbill/undotree",
     event = "VeryLazy",
     config = function()
       require("config.undotree")
+    end,
+  },
+
+  -- harpoon to keep track of frequent files
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    config = function()
+      require("config.harpoon")
     end,
   },
 
