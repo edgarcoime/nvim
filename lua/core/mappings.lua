@@ -74,6 +74,7 @@ end, {
 
 -- Always use very magic mode for searching
 map("n", "/", [[/\v]])
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Change current working directory locally and print cwd after that,
 -- see https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
