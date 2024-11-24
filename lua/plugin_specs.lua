@@ -32,6 +32,9 @@ local firenvim_not_active = function()
 end
 
 local plugin_specs = {
+  -- ##############################
+  --         DEPENDENCIES
+  -- ##############################
   -- load deps that many others rely on
   "nvim-lua/plenary.nvim",
   "echasnovski/mini.nvim", -- TODO: Find a way to not need this
@@ -102,7 +105,9 @@ local plugin_specs = {
     end,
   },
 
-  -- ########## GIT AND VERSION CONTROL ##########
+  -- ##############################
+  --    GIT AND VERSION CONTROL
+  -- ##############################
   {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -121,7 +126,9 @@ local plugin_specs = {
     end,
   },
 
-  -- ########## QUALITY OF LIFE PLUGINS ##########
+  -- ##############################
+  --    QUALITY OF LIFE PLUGINS
+  -- ##############################
   -- Indent Blankline to highlight indentation
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -148,6 +155,15 @@ local plugin_specs = {
     config = function()
       require("config.bufferline")
     end,
+  },
+
+  -- session management
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    opts = {
+      -- add any custom options here
+    },
   },
 
   -- text jumper
