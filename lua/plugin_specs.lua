@@ -104,6 +104,16 @@ local plugin_specs = {
       require("config.telescope")
     end,
   },
+  -- ##############################
+  --           TOOLING
+  -- ##############################
+  {
+    "mbbill/undotree",
+    event = "VeryLazy",
+    config = function()
+      require("config.undotree")
+    end,
+  },
 
   -- ##############################
   --    GIT AND VERSION CONTROL
