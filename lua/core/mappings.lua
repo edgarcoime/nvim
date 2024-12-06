@@ -117,7 +117,13 @@ map("n", "<C-s>", "<cmd>update<cr>", { desc = "Save current buffer" })
 map("n", "<C-q>", "<cmd>qa!<cr>", { desc = "Quit all buffers" })
 
 -- Editor shortcuts
-map("n", "<leader>eS", "<cmd>noa w!<cr>", { desc = "Save without vim hooks or formatting" })
+map("n", "<leader>es", "<cmd>noa w!<cr>", { desc = "Save without vim hooks or formatting" })
+
+-- Save 
+map("n", "<leader>eS", function()
+  vim.cmd('write !sudo tee % > /dev/null')
+  vim.cmd('edit!')
+end, { desc = "Save with root privileges" })
 
 -- Paste buffer shortcuts
 map("x", "<leader>p", [["_dP]], { desc = "Paste without replacing buffer" })
