@@ -84,19 +84,11 @@ map("n", "<leader>cd", "<cmd>lcd %:p:h<cr><cmd>pwd<cr>", { desc = "change cwd" }
 map("n", "<F11>", "<cmd>set spell!<cr>", { desc = "toggle spell" })
 map("i", "<F11>", "<c-o><cmd>set spell!<cr>", { desc = "toggle spell" })
 
--- Change text without putting it into the vim register,
--- see https://stackoverflow.com/q/54255/6064933
--- FIX: error when inputting command c in normal mode
--- map("n", "c", '"_c')
--- map("n", "C", '"_C')
--- map("n", "cc", '"_cc')
--- map("x", "c", '"_c')
-
--- Break inserted text into smaller undo units when we insert some punctuation chars.
-local undo_ch = { ",", ".", "!", "?", ";", ":" }
-for _, ch in ipairs(undo_ch) do
-  map("i", ch, ch .. "<c-g>u")
-end
+-- -- Break inserted text into smaller undo units when we insert some punctuation chars.
+-- local undo_ch = { ",", ".", "!", "?", ";", ":" }
+-- for _, ch in ipairs(undo_ch) do
+--   map("i", ch, ch .. "<c-g>u")
+-- end
 
 -- insert semicolon in the end
 map("i", "<A-;>", "<Esc>miA;<Esc>`ii")
