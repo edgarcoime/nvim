@@ -68,7 +68,7 @@ autocmd("LspAttach", {
 
         -- Hover documentation
         map("K",
-            function() vim.lsp.buf.hover({ border = "rounded", max_width = 100, max_height = 30 }) end,
+            function() vim.lsp.buf.hover({ border = "rounded", max_width = 80, max_height = 20 }) end,
             "Hover Documentation"
         )
 
