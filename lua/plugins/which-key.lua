@@ -35,6 +35,8 @@ local config = {
         { "<leader>e", group = "[E]ditor" },
         { "<leader>ec", group = "[E]ditor [C]onfig" },
         { "<leader>ep", group = "[E]ditor [P]ersistence" },
+
+        { "<leader>x", group = "Trouble [X]" },
       }
     end,
   }
