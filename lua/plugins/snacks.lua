@@ -40,6 +40,7 @@ local M = {
       { "<leader>ex", function() Snacks.explorer() end, desc = "Snacks Explorer" },
 
       -- Searching
+      { "<leader><leader>", function() Snacks.picker.smart() end, desc = "Smart Search" },
       { "<leader>sr", function() Snacks.picker.recent() end, desc = "[S]earch [R]ecent" },
       { "<leader>sf", function() Snacks.picker.files() end, desc = "[S]earch [F]ile" },
       { "<leader>sh", function() Snacks.picker.help() end, desc = "[S]earch [H]elp" },

@@ -15,13 +15,13 @@ return {
 		"selene.yml",
 		"stylua.toml",
 	},
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-      }
-    }
-  },
+	settings = {
+		Lua = {
+			runtime = {
+				version = 'LuaJIT',
+			}
+		}
+	},
 	single_file_support = true,
 	log_level = vim.lsp.protocol.MessageType.Warning,
 }

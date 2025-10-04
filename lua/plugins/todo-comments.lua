@@ -8,7 +8,8 @@ return {
     -- refer to the configuration section below
   },
   keys = {
-    { "<leader>lt", "<cmd>Trouble todo<cr>", desc = "[L]ist [T]odos trouble"},
+    { "<leader>lt", "<cmd>Trouble todo<cr>",                                                                desc = "[L]ist [T]odos trouble" },
+    { "<leader>st", function() Snacks.picker.todo_comments() end,                                           desc = "Todo" },
+    { "<leader>sT", function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end,  desc = "Todo/Fix/Fixme" },
   }
 }
-

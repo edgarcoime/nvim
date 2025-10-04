@@ -41,7 +41,7 @@ require("lazy").setup({
   spec = {
     plugin_specs,
     { import = "plugins" },
-    -- { import = "plugins.lsp" },
+    { import = "plugins.lsp" },
   },
   ui = {
     border = vim.g.border,
