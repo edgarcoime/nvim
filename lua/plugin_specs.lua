@@ -34,6 +34,7 @@ vim.opt.rtp:prepend(lazypath)
 -- GLOBAL PLUGINS
 local plugin_specs = {
   "nvim-lua/plenary.nvim",
+  "tpope/vim-sleuth",
 }
 
 require("lazy").setup({
