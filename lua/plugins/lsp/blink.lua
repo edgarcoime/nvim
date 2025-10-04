@@ -12,7 +12,10 @@ return {
     },
     {
         'saghen/blink.cmp',
-        dependencies = { 'rafamadriz/friendly-snippets' },
+        dependencies = {
+            'rafamadriz/friendly-snippets',
+            'giuxtaposition/blink-cmp-copilot',
+        },
         version = '1.*',
 
         ---@module 'blink.cmp'
@@ -43,11 +46,17 @@ return {
                 },
             },
             sources = {
-                default = { 'lsp', 'path', 'snippets', 'buffer' },
+                default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
                 providers = {
-                    lsp = { score_offset = 1000 },
-                    snippets = { score_offset = 800 },
-                    buffer = { score_offset = 800 },
+                    copilot = {
+                        name = 'copilot',
+                        module = 'blink-cmp-copilot',
+                        score_offset = 1000,
+                        async = true,
+                    },
+                    lsp = { score_offset = 800 },
+                    snippets = { score_offset = 500 },
+                    buffer = { score_offset = 500 },
                     lazydev = {
                         name = 'LazyDev',
                         module = 'lazydev.integrations.blink',
