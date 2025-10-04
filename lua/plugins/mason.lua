@@ -4,7 +4,10 @@ local M = {
   config = function()
     require("mason-tool-installer").setup({
       ensure_installed = {
-        "lua_ls"
+        "lua_ls",
+        "dockerls",
+        "pyright",
+        "gopls",
       }
     })
   end,

@@ -60,11 +60,38 @@ autocmd("LspAttach", {
         end
 
         map("gl", vim.diagnostic.open_float, "Open Diagnostic Float")
-        map("K", vim.lsp.buf.hover, "Hover Documentation")
+        map("K",
+            function() vim.lsp.buf.hover({ border = "rounded", max_width = 100, max_height = 30 }) end,
+            "Hover Documentation"
+        )
         map("gs", vim.lsp.buf.signature_help, "Signature Documentation")
         map("gD", vim.lsp.buf.declaration, "Goto Declaration")
 
         map("gV", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", "Goto Definition in Vertical Split")
+
+        local wk = require("which-key")
+        wk.add({
+            { "<leader>la", vim.lsp.buf.code_action,       desc = "Code Action" },
+            { "<leader>lA", vim.lsp.buf.range_code_action, desc = "Range Code Actions" },
+            { "<leader>ls", vim.lsp.buf.signature_help,    desc = "Display Signature Information" },
+            { "<leader>lr", vim.lsp.buf.rename,            desc = "Rename all references" },
+            { "<leader>lf", vim.lsp.buf.format,            desc = "Format" },
+        })
+
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
+        local function client_supports_method(client, method, bufnr)
+            if vim.fn.has 'nvim-0.11' == 1 then
+                return client:supports_method(method, bufnr)
+            else
+                return client.supports_method(method, { bufnr = bufnr })
+            end
+        end
+
+        if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+            map('<leader>th', function()
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            end, '[T]oggle Inlay [H]ints')
+        end
     end,
 
 })

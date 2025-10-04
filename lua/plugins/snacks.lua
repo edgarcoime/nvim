@@ -1,4 +1,4 @@
-return {
+local M = {
   -- lazy.nvim
   {
     "folke/snacks.nvim",
@@ -84,3 +84,4 @@ return {
     }
   }
 }
+return M
