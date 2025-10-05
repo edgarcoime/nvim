@@ -14,6 +14,7 @@ return {
         'saghen/blink.cmp',
         dependencies = {
             'giuxtaposition/blink-cmp-copilot',
+            'rafamadriz/friendly-snippets',
         },
         version = '1.*',
         opts = function(_, opts)
