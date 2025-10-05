@@ -103,10 +103,11 @@ local M = {
             -- For Bink.cmp get_lsp_capabilities already includes default
             -- https://cmp.saghen.dev/installation#merging-lsp-capabilities
 
-            -- merge original cfg capabilities with offsetEncoding to enforce utf-16
+            -- Can give shared universal setting to capabilities here
             local modified_capabilities = vim.tbl_deep_extend('force', {}, cfg.capabilities or {}, {
                 offsetEncoding = { 'utf-16' },
             })
+            -- merge modified cfg capabilities with offsetEncoding to enforce utf-16
             cfg.capabilities = require('blink.cmp').get_lsp_capabilities(modified_capabilities)
 
             vim.lsp.config(server, cfg)
