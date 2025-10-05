@@ -1,18 +1,19 @@
 -- https://www.reddit.com/r/neovim/comments/1jw0zav/comment/mmeo1as/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
 -- https://www.youtube.com/watch?v=IZnhl121yo0&t=29s
 -- https://gist.github.com/smnatale/b847e568f1a155b8e8349f29a482a1f4
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 local M = {
     'neovim/nvim-lspconfig',
     config = function()
         -- Mason ensure Install
         require('mason-tool-installer').setup({
             ensure_installed = {
-                'lua_ls',
                 'dockerls',
-                'gopls',
+                'bashls',
 
-                -- Python environment
                 'pyright',
+                'lua_ls',
+                'gopls',
             },
         })
 
@@ -44,6 +45,8 @@ local M = {
         -- Server configs
         local servers = {
             dockerls = {},
+            bashls = {},
+
             -- PYTHON config
             pyright = {
                 cmd = { 'pyright-langserver', '--stdio' },
@@ -87,6 +90,8 @@ local M = {
                     },
                 },
             },
+            -- Gopls
+            gopls = {},
         }
 
         -- Activate LSP
