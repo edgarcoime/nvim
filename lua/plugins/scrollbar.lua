@@ -22,16 +22,32 @@ return {
         -- cmd = "UndotreeToggle",
         dependencies = {},
         config = function()
-            require('scrollbar').setup()
-            require('scrollbar.handlers.gitsigns').setup()
+            -- require('scrollbar').setup()
+            -- require('scrollbar.handlers.gitsigns').setup()
+            require('scrollbar').setup({
+                handlers = {
+                    gitsigns = true, -- Requires gitsigns
+                    handle = true,
+                    search = true, -- Requires hlslens
+                    diagnostic = false, -- Requires nvim-lsp
+                    -- cursor = true, -- Requires Neovim nightly (or 0.9+)
+                    -- ale = true, -- Requires ALE
+                },
+                excluded_filetypes = {
+                    'prompt',
+                    'TelescopePrompt',
+                    'noice',
+                    'notify',
+                    'cmp_menu',
+                    'cmp_docs',
+                    'NvimTree',
+                    'neo-tree',
+                    'Trouble',
+                    'lazy',
+                    'mason',
+                    'undotree',
+                },
+            })
         end,
     },
-    -- {
-    --     'gorbit99/codewindow.nvim',
-    --     config = function()
-    --         local codewindow = require('codewindow')
-    --         codewindow.setup()
-    --         codewindow.apply_default_keybinds()
-    --     end,
-    -- },
 }
