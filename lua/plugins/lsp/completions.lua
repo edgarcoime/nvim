@@ -14,6 +14,15 @@ local M = {
                 'pyright',
                 'lua_ls',
                 'gopls',
+
+                -- typst
+                'tinymist',
+
+                -- web
+                'ts_ls',
+                'html',
+                'cssls',
+                'tailwindcss',
             },
         })
 
@@ -46,6 +55,7 @@ local M = {
         local servers = {
             dockerls = {},
             bashls = {},
+            tinymist = {},
 
             -- PYTHON config
             pyright = {
@@ -92,6 +102,11 @@ local M = {
             },
             -- Gopls
             gopls = {},
+            -- web
+            ts_ls = {},
+            html = {},
+            cssls = {},
+            tailwindcss = {},
         }
 
         -- Activate LSP

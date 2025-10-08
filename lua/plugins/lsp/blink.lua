@@ -15,6 +15,7 @@ return {
         dependencies = {
             'giuxtaposition/blink-cmp-copilot',
             'rafamadriz/friendly-snippets',
+            'Kaiser-Yang/blink-cmp-dictionary',
         },
         version = '1.*',
         opts = function(_, opts)
@@ -22,7 +23,7 @@ return {
 
             -- Sources
             opts.sources = vim.tbl_deep_extend('force', {}, opts.sources or {}, {
-                default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+                default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot', 'dictionary' },
                 providers = {
                     lazydev = {
                         module = 'lazydev.integrations.blink',
@@ -55,6 +56,19 @@ return {
                         score_offset = -10,
                         module = 'blink-cmp-copilot',
                         name = 'copilot',
+                    },
+                    dictionary = {
+                        module = 'blink-cmp-dictionary',
+                        score_offset = 20,
+                        enabled = true,
+                        max_items = 8,
+                        min_keyword_length = 3,
+                        opts = {
+                            dictionary_directories = { vim.fn.stdpath('config') .. '/dictionary' },
+                            dictionary_files = {
+                                vim.fn.stdpath('config') .. '/spell/en.utf-8.add',
+                            },
+                        },
                     },
                     snippets = {
                         enabled = true,

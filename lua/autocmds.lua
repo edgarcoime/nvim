@@ -2,6 +2,13 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = 'typ',
+    callback = function()
+        require('markview').disable(0) -- disables markview for the current buffer
+    end,
+})
+
 -- Highlight yanked text
 local highlight_group = augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
