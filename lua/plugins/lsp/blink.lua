@@ -61,7 +61,7 @@ return {
                         module = 'blink-cmp-dictionary',
                         score_offset = 20,
                         enabled = true,
-                        max_items = 8,
+                        max_items = 5,
                         min_keyword_length = 3,
                         opts = {
                             dictionary_directories = { vim.fn.stdpath('config') .. '/dictionary' },

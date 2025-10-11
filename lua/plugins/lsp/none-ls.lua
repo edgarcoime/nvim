@@ -16,7 +16,7 @@ return {
         require('mason-null-ls').setup({
             ensure_installed = {
                 -- Python tooling
-                'ruff', -- Python linter and formatter; Already installed via Mason
+                -- 'ruff', -- Python linter and formatter; Already installed via Mason
                 'pylint',
                 'black',
                 'isort',
