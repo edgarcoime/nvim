@@ -10,6 +10,7 @@ local M = {
             ensure_installed = {
                 'dockerls',
                 'bashls',
+                'harper_ls',
 
                 -- 'pyright',
                 'basedpyright',
@@ -56,30 +57,15 @@ local M = {
         local servers = {
             dockerls = {},
             bashls = {},
+
+            -- typst
             tinymist = {},
+            harper_ls = {
+                userDictPath = '~/.config/nvim_12/spell/en.utf-8.add',
+            },
 
             -- PYTHON config
             basedpyright = {},
-            -- pyright = {
-            --     cmd = { 'pyright-langserver', '--stdio' },
-            --     filetypes = { 'python' },
-            --     root_markers = {
-            --         'pyproject.toml',
-            --         'setup.py',
-            --         'setup.cfg',
-            --         'requirements.txt',
-            --         'Pipfile',
-            --         'pyrightconfig.json',
-            --     },
-            --     settings = {
-            --         python = {
-            --             analysis = {
-            --                 autoSearchPaths = true,
-            --                 useLibraryCodeForTypes = true,
-            --             },
-            --         },
-            --     },
-            -- },
             -- Lua config
             lua_ls = {
                 settings = {
