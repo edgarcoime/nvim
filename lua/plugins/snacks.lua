@@ -19,11 +19,11 @@ local M = {
           { section = "startup" },
         },
       },
-      explorer = { 
-        layout = {
-          cycle = false,
-        }
-      },
+      -- explorer = { 
+      --   layout = {
+      --     cycle = false,
+      --   }
+      -- },
       indent = { enabled = true },
       picker = {
         enabled = true,
@@ -50,7 +50,7 @@ local M = {
       words = { enabled = true },
     },
     keys = {
-      { "<leader>ex", function() Snacks.explorer() end, desc = "Snacks Explorer" },
+      -- { "<leader>ex", function() Snacks.explorer() end, desc = "Snacks Explorer" },
 
       -- Searching
       { "<leader><leader>", function() Snacks.picker.smart() end, desc = "Smart Search" },
