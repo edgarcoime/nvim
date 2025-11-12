@@ -97,6 +97,8 @@ local M = {
       { "<leader>en", function() Snacks.notifier.show_history() end, desc = "Notification History" },
       { "<leader>ed", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
       { "<leader>eC", function() Snacks.picker.colorschemes() end, desc = "Search colorschemes" },
+
+      { "<leader>e/", function() Snacks.terminal() end, desc = "Toggle Terminal"}
     }
   }
 }
