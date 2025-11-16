@@ -17,7 +17,8 @@ local config = {
             wk.add({
                 { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
 
-                { '<leader>d', group = '[D]ebugger' },
+                -- { '<leader>d', group = '[D]ebugger' },
+                -- { '<leader>w', group = '[W]orkspace' },
 
                 { '<leader>l', group = '[L]SP' },
 
@@ -28,8 +29,6 @@ local config = {
 
                 { '<leader>g', group = '[G]it' },
                 { '<leader>gt', group = '[G]it [T]oggle' },
-
-                { '<leader>w', group = '[W]orkspace' },
 
                 { '<leader>e', group = '[E]ditor' },
                 { '<leader>ec', group = '[E]ditor [C]onfig' },
@@ -42,4 +41,3 @@ local config = {
     },
 }
 return config
--- return {}
