@@ -72,9 +72,9 @@ vim.opt.backupcopy = "yes" -- Copy the original file to backupdir and overwrite 
 vim.opt.backupskip = vim.opt.wildignore:get() -- Skip backup for patterns in wildignore
 
 -- Tab and indentation settings
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true -- Use spaces instead of tabs
 
 -- Matching pairs and highlighting
