@@ -15,7 +15,12 @@ local M = {
                 -- 'pyright',
                 'basedpyright',
                 'lua_ls',
+
+                -- go
                 'gopls',
+
+                -- rust
+                'rust-analyzer',
 
                 -- typst
                 'tinymist',
