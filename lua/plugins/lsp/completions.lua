@@ -20,7 +20,7 @@ local M = {
                 'gopls',
 
                 -- rust
-                'rust-analyzer',
+                'rust-analyzer', -- Installed via Mason, but managed/started by rustaceanvim
 
                 -- typst
                 'tinymist',
@@ -31,6 +31,22 @@ local M = {
                 'cssls',
                 'tailwindcss',
             },
+        })
+
+        -- Hook into LspAttach to prevent non-rustaceanvim rust-analyzer clients
+        vim.api.nvim_create_autocmd('LspAttach', {
+            callback = function(event)
+                local client = vim.lsp.get_client_by_id(event.data.client_id)
+                if client and (client.name == 'rust-analyzer' or client.name == 'rust_analyzer') then
+                    -- Check if this is from rustaceanvim (rustaceanvim uses 'rust_analyzer' with underscore)
+                    -- and the command should be just 'rust-analyzer' (not the mason path)
+                    local cmd = client.config and client.config.cmd and client.config.cmd[1] or ''
+                    if cmd:match('mason') then
+                        -- This is from mason/nvim-lspconfig, stop it
+                        vim.lsp.stop_client(client.id, true)
+                    end
+                end
+            end,
         })
 
         -- Lsp config
