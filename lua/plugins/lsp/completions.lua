@@ -89,28 +89,12 @@ local M = {
             basedpyright = {},
             -- Lua config
             lua_ls = {
-                settings = {
-                    Lua = {
-                        completion = {
-                            callSnippet = 'Replace',
-                        },
-                        runtime = { version = 'LuaJIT' },
-                        workspace = {
-                            checkThirdParty = false,
-                            library = vim.api.nvim_get_runtime_file('', true),
-                        },
-                        diagnostics = {
-                            globals = { 'vim' },
-                            disable = { 'missing-fields' },
-                        },
-                        format = {
-                            enable = false,
-                        },
-                    },
-                },
+                function() return require('lsp.lua_ls') end,
             },
             -- Gopls
-            gopls = {},
+            gopls = {
+                function() return require('lsp.gopls') end,
+            },
             -- web
             ts_ls = {},
             html = {},
