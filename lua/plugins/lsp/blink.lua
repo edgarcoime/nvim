@@ -53,7 +53,7 @@ return {
                     },
                     copilot = {
                         async = true,
-                        score_offset = 80,
+                        score_offset = 25,
                         module = 'blink-cmp-copilot',
                         name = 'copilot',
                     },
