@@ -72,7 +72,6 @@ local M = {
       { "<leader>sk", function() Snacks.picker.keymaps() end, desc = "[S]earch [k]eymaps" },
       { "<leader>sl", function() Snacks.picker.loclist() end, desc = "[S]earch [l]ocation List" },
       { "<leader>sq", function() Snacks.picker.qflist() end, desc = "[S]earch [q]uickfix List" },
-      { "<leader>sn", function() Snacks.picker.qflist() end, desc = "[S]earch [q]uickfix List" },
       { '<leader>sn', function() Snacks.picker.notifications() end, desc = "[S]earch [n]otifications" },
       { '<leader>s/', function() Snacks.picker.search_history() end, desc = "Search History" },
       { "<leader>s'", function() Snacks.picker.autocmds() end, desc = "Autocmds" },
