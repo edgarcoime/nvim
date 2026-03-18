@@ -35,6 +35,8 @@ local config = {
                 { '<leader>ee', group = '[E]ditor [E]xtensions' },
 
                 { '<leader>x', group = 'Trouble [X]' },
+
+                { '<leader>9', group = '[9]9 Assistant' },
             })
             wk.setup({})
         end,
