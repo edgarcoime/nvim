@@ -49,7 +49,22 @@ return {
             formatting.gofumpt,
             formatting.goimports,
 
-            formatting.prettier.with({ filetypes = { 'html', 'json', 'yaml', 'markdown' } }),
+            formatting.prettier.with({
+                filetypes = {
+                    'html',
+                    'json',
+                    'yaml',
+                    'markdown',
+                    'astro',
+                    'javascript',
+                    'typescript',
+                    'javascriptreact',
+                    'typescriptreact',
+                    'css',
+                },
+            }),
+            require('none-ls.diagnostics.eslint_d'),
+            require('none-ls.formatting.eslint_d'),
             formatting.stylua,
             formatting.shfmt.with({ args = { '-i', '4' } }),
             formatting.terraform_fmt,

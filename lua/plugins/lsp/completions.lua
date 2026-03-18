@@ -26,10 +26,12 @@ local M = {
                 'tinymist',
 
                 -- web
+                'prettier',
                 'ts_ls',
                 'html',
                 'cssls',
                 'tailwindcss',
+                'astro-language-server',
             },
         })
 
@@ -37,7 +39,9 @@ local M = {
         vim.api.nvim_create_autocmd('LspAttach', {
             callback = function(event)
                 local client = vim.lsp.get_client_by_id(event.data.client_id)
-                if client and (client.name == 'rust-analyzer' or client.name == 'rust_analyzer') then
+                if
+                    client and (client.name == 'rust-analyzer' or client.name == 'rust_analyzer')
+                then
                     -- Check if this is from rustaceanvim (rustaceanvim uses 'rust_analyzer' with underscore)
                     -- and the command should be just 'rust-analyzer' (not the mason path)
                     local cmd = client.config and client.config.cmd and client.config.cmd[1] or ''
@@ -89,17 +93,22 @@ local M = {
             basedpyright = {},
             -- Lua config
             lua_ls = {
-                function() return require('lsp.lua_ls') end,
+                function()
+                    return require('lsp.lua_ls')
+                end,
             },
             -- Gopls
             gopls = {
-                function() return require('lsp.gopls') end,
+                function()
+                    return require('lsp.gopls')
+                end,
             },
             -- web
             ts_ls = {},
             html = {},
             cssls = {},
             tailwindcss = {},
+            astro = {},
         }
 
         -- Activate LSP

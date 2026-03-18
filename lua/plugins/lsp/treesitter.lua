@@ -47,6 +47,7 @@ local M = {
         'vimdoc',
         'xml',
         'yaml',
+        'astro',
       },
       incremental_selection = {
         enable = true,
