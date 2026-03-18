@@ -29,6 +29,8 @@ return {
                 'eslint_d', -- ts/js linter
                 'shfmt', -- Shell formatter
                 'stylua', -- lua formatter; Already installed via Mason
+
+                'zls',
             },
             automatic_installation = true,
         })
