@@ -26,7 +26,6 @@ return {
                 'goimports',
 
                 'prettier', -- ts/js formatter
-                'eslint_d', -- ts/js linter
                 'shfmt', -- Shell formatter
                 'stylua', -- lua formatter; Already installed via Mason
 
@@ -65,8 +64,7 @@ return {
                     'css',
                 },
             }),
-            require('none-ls.diagnostics.eslint_d'),
-            require('none-ls.formatting.eslint_d'),
+            require('none-ls.diagnostics.eslint'),
             formatting.stylua,
             formatting.shfmt.with({ args = { '-i', '4' } }),
             formatting.terraform_fmt,
